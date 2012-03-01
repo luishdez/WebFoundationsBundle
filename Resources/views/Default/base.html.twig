@@ -1,0 +1,64 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6 ie"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 ie"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 ie"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9 ie"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="es"><!--<![endif]-->
+<head>
+<!--
+{% block web_foundations_credits %}
+
+Powered by: Aggressivex NetWorks
+{% endblock %}
+-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{% block web_foundations_title %}{% endblock %}</title>
+
+{% block web_foundations_metadata %}
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">    
+{% endblock %}
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+
+{% block web_foundations_head %}
+{% endblock %}
+
+{% block web_foundations_stylesheets %}
+{% endblock %}
+
+    <script src="{{ asset('bundles/aggressivexwebfoundations/js/libs/modernizr-2.0.6.min.js') }}"></script>
+
+{% block web_foundations_top_scripts %}
+{%- javascripts
+	    	'@AggressivexWebFoundationsBundle/Resources/public/js/libs/jquery-1.7.1.min.js'
+	    	'@AggressivexWebFoundationsBundle/Resources/public/js/libs/tablesorter.js'
+	    	'@AggressivexWebFoundationsBundle/Resources/public/js/libs/jquery.cookie.js'
+	    	'@AggressivexWebFoundationsBundle/Resources/public/js/libs/jquery.placeholder.min.js'	    	
+			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
+			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-dropdown.js'
+			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-scrollspy.js'
+			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tabs.js'
+			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-twipsy.js'
+			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-popover.js'
+			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-alerts.js'
+			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-buttons.js'
+	    %}
+	<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}  
+
+{% block web_foundations_javascripts %}
+{% endblock %}
+</head>
+
+<body>
+{% block web_foundations_body %}{% endblock %}
+
+{% block web_foundations_footer %}
+{% endblock %}
+</body>
+</html>
