@@ -1,64 +1,52 @@
-<!doctype html>
-<!--[if lt IE 7 ]> <html class="ie6 ie"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7 ie"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8 ie"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9 ie"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="es"><!--<![endif]-->
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="{{wf_global_language|default(app.session.locale)}}" class="ie no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="{{wf_global_language|default(app.session.locale)}}" class="ie no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="{{wf_global_language|default(app.session.locale)}}" class="ie no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="{{wf_global_language|default(app.session.locale)}}" class="ie no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="{{wf_html_language|default(app.session.locale)}}"><!--<![endif]-->
 <head>
-<!--
-{% block web_foundations_credits %}
-
-Powered by: Aggressivex NetWorks
-{% endblock %}
--->
-    <meta charset="utf-8">
+{% block wf_credits %}{% endblock %}
+    
+    {% block wf_meta %}
+    <title>{% block wf_meta_title %}{% endblock %}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="{%- block wf_meta_charset %}utf-8{% endblock -%}">
+    <meta name="viewport" content="{%- block wf_meta_viewport %}width=device-width,initial-scale=1{% endblock -%}">    
+    <meta name="description" content="{%- block wf_meta_description %}{% endblock -%}">
+    <meta name="author" content="{%- block wf_meta_author %}{% endblock -%}">
+    {% endblock %}
 
-    <title>{% block web_foundations_title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{%- block wf_meta_favicon %}{{ asset('favicon.ico') }}{% endblock -%}" />
 
-{% block web_foundations_metadata %}
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width,initial-scale=1">    
-{% endblock %}
-
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-
-{% block web_foundations_head %}
-{% endblock %}
-
-{% block web_foundations_stylesheets %}
-{% endblock %}
-
-    <script src="{{ asset('bundles/aggressivexwebfoundations/js/libs/modernizr-2.0.6.min.js') }}"></script>
-
-{% block web_foundations_top_scripts %}
-{%- javascripts
-	    	'@AggressivexWebFoundationsBundle/Resources/public/js/libs/jquery-1.7.1.min.js'
-	    	'@AggressivexWebFoundationsBundle/Resources/public/js/libs/tablesorter.js'
-	    	'@AggressivexWebFoundationsBundle/Resources/public/js/libs/jquery.cookie.js'
-	    	'@AggressivexWebFoundationsBundle/Resources/public/js/libs/jquery.placeholder.min.js'	    	
-			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
-			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-dropdown.js'
-			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-scrollspy.js'
-			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tabs.js'
-			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-twipsy.js'
-			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-popover.js'
-			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-alerts.js'
-			'@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-buttons.js'
-	    %}
-	<script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% endblock %}  
-
-{% block web_foundations_javascripts %}
+{% block wf_stylesheet %}{% endblock %}
+{% block wf_head_js %}
+    <script src="{{ asset('bundles/aggressivexwebfoundations/js/libs/modernizr-2.5.3.min.js') }}"></script>
 {% endblock %}
 </head>
-
+{% block wf_body %}
 <body>
-{% block web_foundations_body %}{% endblock %}
-
-{% block web_foundations_footer %}
+{% block wf_chromeframe %}
+<!--[if lt IE 7]>
+    <p class=chromeframe>Your browser is <em>ancient!</em> 
+        <a href="http://browsehappy.com">Upgrade to a different browser</a> or 
+        <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
+    </p>
+<![endif]-->
+{% endblock %}
+{% block wf_body_content %}
+{% endblock %}
+{% block wf_bottom_js %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% javascripts '@AggressivexWebFoundationsBundle/Resources/public/js/libs/jquery-1.7.2.min.js' %}{{ asset_url }}{% endjavascripts %}"><\/script>')</script>
+{% endblock %}
+{% block wf_google_analytics %}
+    <script>
+        var _gaq=[['_setAccount','{{wf_google_analytics_code|default('UA-XXXXX-X')}}'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
 {% endblock %}
 </body>
+{% endblock %}
 </html>
