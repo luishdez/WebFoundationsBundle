@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="{{wf_global_language|default(app.session.locale)}}" class="ie no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="{{wf_global_language|default(app.session.locale)}}" class="ie no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="{{wf_global_language|default(app.session.locale)}}" class="ie no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="{{wf_global_language|default(app.session.locale)}}" class="ie no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="{{wf_html_language|default(app.session.locale)}}"><!--<![endif]-->
+<!--[if lt IE 7 ]> <html lang="{{wf_global_language|default('en')}}" class="ie no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="{{wf_global_language|default('en')}}" class="ie no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="{{wf_global_language|default('en')}}" class="ie no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="{{wf_global_language|default('en')}}" class="ie no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="{{wf_html_language|default('en')}}"><!--<![endif]-->
 <head>
 {% block wf_credits %}{% endblock %}
     
-    {% block wf_meta %}
-    <title>{% block wf_meta_title %}{% endblock %}</title>
+    {% block wf_meta %}<title>{% block wf_meta_title %}{% endblock %}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="{%- block wf_meta_charset %}utf-8{% endblock -%}">
     <meta name="viewport" content="{%- block wf_meta_viewport %}width=device-width,initial-scale=1{% endblock -%}">    
     <meta name="description" content="{%- block wf_meta_description %}{% endblock -%}">
-    <meta name="author" content="{%- block wf_meta_author %}{% endblock -%}">
-    {% endblock %}
+    <meta name="author" content="{%- block wf_meta_author %}{% endblock -%}">{% endblock %}
 
     <link rel="shortcut icon" href="{%- block wf_meta_favicon %}{{ asset('favicon.ico') }}{% endblock -%}" />
 
